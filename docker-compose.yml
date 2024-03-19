@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  dev:
+    image: ghcr.io/r2d2bzh/docker-build-android-nodejs:${VERSION:-dev}
+    build:
+      context: .

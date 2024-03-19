@@ -1,0 +1,62 @@
+:icons: font
+:source-highlighter: highlightjs
+
+= Android and NodeJS image builder
+
+The `docker-build-android-nodejs` image is provided to ease the building of android artifacts (apk, aap, aar, ... ) Docker image used during development.
+
+NodeJS support for building Capacitor applications. -> https://capacitorjs.com/[Capacitor]
+
+Fastlane support for CI/CD (Gitlab-ci, ...)
+
+* `https://docs.fastlane.tools/getting-started/android/setup/[Setup Fastlane]`
+* `https://about.gitlab.com/blog/2023/06/13/android-cicd-with-gitlab/[Gitlab-ci tutorial]`
+
+=== Environment variables
+
+Two environment variables are available
+
+* `UID`: the user identifier of the user that will operate all commands in the container. Default is 1001
+* `GID`: the group identifier of the user that will operate all commands in the container. Default is 1001
+
+=== Dockerfile
+
+[source, Dockerfile]
+----
+FROM ghcr.io/r2d2bzh/docker-build-android-nodejs:dev
+----
+
+IMPORTANT: Replace the tag `dev` with a tag delivered on the https://github.com/r2d2bzh/docker-build-android-nodejs[r2d2bzh/docker-build-android-nodejs project].
+
+=== Creating a https://docs.docker.com/compose/compose-file/[docker-compose file]
+
+This `docker-compose.yml` file will help to easily build and start the development container.
+
+It should contain something close to the following:
+
+.docker-compose.yml
+[source, YAML]
+----
+  dev:
+    build:
+      context: dev
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    volumes:
+      - .:/home/user/dev
+----
+
+[TIP]
+====
+Most of the time the `UID` variable is already defined by your shell but is not exported.
+`GID` must be the numeric identifier of your user default group.
+Hence:
+
+..profile
+[source, sh]
+----
+export UID
+export GID=$(id -g)
+----
+====
