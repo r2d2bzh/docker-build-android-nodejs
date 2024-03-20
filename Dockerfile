@@ -35,6 +35,7 @@ RUN apt-get install -qy \
         unzip \
         p7zip p7zip-full \
         python3 \
+        gettext-base \
         openjdk-${JAVA_VERSION}-jre \
         openjdk-${JAVA_VERSION}-jdk
 
