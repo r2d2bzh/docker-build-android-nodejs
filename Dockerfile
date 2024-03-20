@@ -67,7 +67,7 @@ RUN curl -sL https://dl.google.com/android/repository/commandlinetools-linux-${A
         && mkdir $ANDROID_HOME && mv cmdline-tools $ANDROID_HOME \
         && yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --licenses \
         && $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" "platforms;android-${ANDROID_PLATFORMS_VERSION}"
-ENV PATH=$PATH:${ANDROID_HOME}/cmdline-tools:${ANDROID_HOME}/platform-tools
+ENV PATH=$PATH:${ANDROID_HOME}/cmdline-tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/build-tools/${ANDROID_BUILD_TOOLS_VERSION}
 
 # Install NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x | bash - \
