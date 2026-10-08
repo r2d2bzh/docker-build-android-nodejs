@@ -4,15 +4,15 @@ ONBUILD ARG UID=1001
 ONBUILD ARG GID=1001
 
 ARG JAVA_VERSION=21
-ARG NODEJS_VERSION=20
+ARG NODEJS_VERSION=24
 # See https://developer.android.com/studio/index.html#command-tools
-ARG ANDROID_SDK_VERSION=13114758
+ARG ANDROID_SDK_VERSION=15859902
 # See https://developer.android.com/tools/releases/build-tools
-ARG ANDROID_BUILD_TOOLS_VERSION=35.0.0
+ARG ANDROID_BUILD_TOOLS_VERSION=36.0.0
 # See https://developer.android.com/studio/releases/platforms
-ARG ANDROID_PLATFORMS_VERSION=35
+ARG ANDROID_PLATFORMS_VERSION=36
 # See https://gradle.org/releases/
-ARG GRADLE_VERSION=8.11.1
+ARG GRADLE_VERSION=8.13
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=en_US.UTF-8
