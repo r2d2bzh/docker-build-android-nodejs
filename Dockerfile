@@ -8,11 +8,11 @@ ARG NODEJS_VERSION=24
 # See https://developer.android.com/studio/index.html#command-tools
 ARG ANDROID_SDK_VERSION=15859902
 # See https://developer.android.com/tools/releases/build-tools
-ARG ANDROID_BUILD_TOOLS_VERSION=36.0.0
+ARG ANDROID_BUILD_TOOLS_VERSION=37.0.0
 # See https://developer.android.com/studio/releases/platforms
-ARG ANDROID_PLATFORMS_VERSION=36
+ARG ANDROID_PLATFORMS_VERSION=37.2
 # See https://gradle.org/releases/
-ARG GRADLE_VERSION=8.13
+ARG GRADLE_VERSION=9.2.1
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=en_US.UTF-8
