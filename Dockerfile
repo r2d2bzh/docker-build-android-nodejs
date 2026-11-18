@@ -94,6 +94,14 @@ RUN rbenv install 3.1.1
 RUN rbenv global 3.1.1
 RUN gem install bundler:2.3.7
 
+# NDK and CMake for projects with native code (JNI). A project must use this exact ndkVersion (and CMake version),
+# otherwise the Android Gradle plugin downloads its own at every build
+# See https://developer.android.com/ndk/downloads
+ARG ANDROID_NDK_VERSION=23.1.7779620
+ARG ANDROID_CMAKE_VERSION=3.22.1
+RUN $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME \
+        "ndk;${ANDROID_NDK_VERSION}" "cmake;${ANDROID_CMAKE_VERSION}"
+
 # Clean up
 RUN apt-get autoremove -y \
         && apt-get clean -y \
